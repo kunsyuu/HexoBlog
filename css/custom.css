@@ -1,3 +1,4 @@
+/*自定义字体*/
 @font-face{
     font-family: 'zpix';
     font-display: swap;
@@ -8,18 +9,22 @@ body {
     font-family: 'zpix', "Microsoft YaHei";
 }
 
+/*文章内容段落开头空两格*/
 #article-container p {
     text-indent: 2em;
 }
 
+/*文章标题下添加边框*/
 .article-title {
     border-bottom: 1px solid;
 }
 
+/*右边浮动菜单去掉头像下统计数据*/
 .sidebar-site-data {
     display: none;
 }
 
+/*右边浮动菜单宽度调整*/
 #sidebar #sidebar-menus{
     right: -180px;
     width: 180px;
