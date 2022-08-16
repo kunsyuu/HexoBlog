@@ -1,0 +1,26 @@
+@font-face{
+    font-family: 'zpix';
+    font-display: swap;
+    src: url('../font/zpix.woff2') format("truetype");
+}
+
+body {
+    font-family: 'zpix', "Microsoft YaHei";
+}
+
+#article-container p {
+    text-indent: 2em;
+}
+
+.article-title {
+    border-bottom: 1px solid;
+}
+
+.sidebar-site-data {
+    display: none;
+}
+
+#sidebar #sidebar-menus{
+    right: -180px;
+    width: 180px;
+}
