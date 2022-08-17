@@ -25,7 +25,16 @@ body {
 }
 
 /*右边浮动菜单宽度调整*/
-#sidebar #sidebar-menus{
+#sidebar #sidebar-menus {
     right: -180px;
     width: 180px;
+}
+
+/*主页向下箭头位置*/
+#scroll-down {
+    bottom: 70px !important;
+}
+
+.full_page #site-title {
+    display: none;
 }
