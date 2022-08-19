@@ -1,4 +1,4 @@
-/*自定义字体*/
+/*自定义字体
 @font-face{
     font-family: 'zpix';
     font-display: swap;
@@ -7,15 +7,20 @@
 
 body {
     font-family: 'zpix', "Microsoft YaHei";
-}
+}*/
 
 /*文章内容段落开头空两格*/
 #article-container p {
     text-indent: 2em;
 }
 
+#post-info .post-title{
+    font-weight: bold;
+}
+
 /*文章标题下添加边框*/
 .article-title {
+    font-weight: bold;
     border-bottom: 1px solid;
 }
 
