@@ -2,7 +2,7 @@
 @font-face{
     font-family: 'zpix';
     font-display: swap;
-    src: url('../font/zpix.woff2') format("truetype");
+    src: url('/font/zpix.woff2') format("truetype");
 }
 
 body {
@@ -35,6 +35,7 @@ body {
     bottom: 70px !important;
 }
 
+/*首页页面中间隐藏网站标题*/
 .full_page #site-title {
     display: none;
 }

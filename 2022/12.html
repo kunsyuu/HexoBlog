@@ -1,0 +1,215 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"><title>Hestia面板安装WordPress | 萌五仔的BLOG</title><meta name="author" content="vmmoe.com"><meta name="copyright" content="vmmoe.com"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="虽然现在已经改用Hexo静态博客，但还是记录下以前使用WordPress时的安装过程。  服务器使用管理面板为HestiaCP，网站使用WordPress及其很好看的主题Sakurairo搭建而成。 以前一直觉得宝塔面板很好用，但最近发现宝塔面板无法绕过强行绑定手机号，道听途说到还会定时运行脚本收集服务器信息，即使是使用国际版的aapanel也同样有收集信息的问题，这些脚本在运行时还会占用较大">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hestia面板安装WordPress">
+<meta property="og:url" content="https://blog.vmmoe.com/2022/12.html">
+<meta property="og:site_name" content="萌五仔的BLOG">
+<meta property="og:description" content="虽然现在已经改用Hexo静态博客，但还是记录下以前使用WordPress时的安装过程。  服务器使用管理面板为HestiaCP，网站使用WordPress及其很好看的主题Sakurairo搭建而成。 以前一直觉得宝塔面板很好用，但最近发现宝塔面板无法绕过强行绑定手机号，道听途说到还会定时运行脚本收集服务器信息，即使是使用国际版的aapanel也同样有收集信息的问题，这些脚本在运行时还会占用较大">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://s2.loli.net/2022/08/18/5ofQ1xte2KpTVD7.jpg">
+<meta property="article:published_time" content="2022-08-18T04:16:24.000Z">
+<meta property="article:modified_time" content="2022-08-18T09:30:50.988Z">
+<meta property="article:author" content="vmmoe.com">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/08/18/5ofQ1xte2KpTVD7.jpg"><link rel="shortcut icon" href="https://s2.loli.net/2022/07/10/wP3GSko6DT8CaUn.png"><link rel="canonical" href="https://blog.vmmoe.com/2022/12"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"prismjs","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: 'Copy successfully',
+    error: 'Copy error',
+    noSupport: 'The browser does not support'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: 'days',
+  date_suffix: {
+    just: 'Just',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/flickr-justified-gallery/dist/fjGallery.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: true,
+  isAnchor: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Hestia面板安装WordPress',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: false,
+  postUpdate: '2022-08-18 17:30:50'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(win=>{
+    win.saveToLocal = {
+      set: function setWithExpiry(key, value, ttl) {
+        if (ttl === 0) return
+        const now = new Date()
+        const expiryDay = ttl * 86400000
+        const item = {
+          value: value,
+          expiry: now.getTime() + expiryDay,
+        }
+        localStorage.setItem(key, JSON.stringify(item))
+      },
+
+      get: function getWithExpiry(key) {
+        const itemStr = localStorage.getItem(key)
+
+        if (!itemStr) {
+          return undefined
+        }
+        const item = JSON.parse(itemStr)
+        const now = new Date()
+
+        if (now.getTime() > item.expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return item.value
+      }
+    }
+  
+    win.getScript = url => new Promise((resolve, reject) => {
+      const script = document.createElement('script')
+      script.src = url
+      script.async = true
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    })
+  
+      win.activateDarkMode = function () {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = function () {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+          if (t === 'dark') activateDarkMode()
+          else if (t === 'light') activateLightMode()
+        
+    const detectApple = () => {
+      if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+    })(window)</script><link rel="preload" href="/font/zpix.woff2" as="font" type="font/woff2" crossorigin> <link rel="stylesheet" href="/css/custom.css"><meta name="generator" content="Hexo 6.2.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src= "https://s.nmxc.ltd/sakurairo_vision/@2.5/load_svg/outload.svg" data-lazy-src="https://s2.loli.net/2022/07/10/ME7Y1UDk36cHKO2.jpg" onerror="onerror=null;src='https://s2.loli.net/2022/07/10/lPkStnvc8XyI6qx.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">12</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">0</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://s2.loli.net/2022/08/18/5ofQ1xte2KpTVD7.jpg')"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">萌五仔的BLOG</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 文章</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="/gallery/"><i class="fa-fw fas fa-images"></i><span> 相册</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Hestia面板安装WordPress</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="fa-fw post-meta-icon far fa-calendar-alt"></i><span class="post-meta-label">Created</span><time datetime="2022-08-18T04:16:24.000Z" title="Created 2022-08-18 12:16:24">2022-08-18</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Note/">Note</a></span></div><div class="meta-secondline"></div></div></div></header><main class="layout hide-aside" id="content-inner"><div id="post"><article class="post-content" id="article-container"><!-- markdownlint-disable MD041 MD002-->
+<blockquote>
+<p>虽然现在已经改用Hexo静态博客，但还是记录下以前使用WordPress时的安装过程。</p>
+</blockquote>
+<p>服务器使用管理面板为HestiaCP，网站使用WordPress及其很好看的主题Sakurairo搭建而成。</p>
+<p>以前一直觉得宝塔面板很好用，但最近发现宝塔面板无法绕过强行绑定手机号，道听途说到还会定时运行脚本收集服务器信息，即使是使用国际版的aapanel也同样有收集信息的问题，这些脚本在运行时还会占用较大的服务器资源。虽然可以通过禁用收集信息的脚本来临时解决，我也没有什麽隐私可供收集，但即然已经感觉不痛快那就不用了吧。</p>
+<p>试用了Hestia感觉还不错，非常轻巧且日常所需功能均有。服务器用这类面板肯定要方便一些，手动安装配置服务器环境和网站还是需要花费不少时间精力的，有开源免费的工具的话还是尽量使用工具吧。</p>
+<p>搭建步骤：</p>
+<h2 id="1-安装HestiaCP"><a href="#1-安装HestiaCP" class="headerlink" title="1.安装HestiaCP"></a>1.安装HestiaCP</h2><p>Hestia官方网站：<a target="_blank" rel="noopener" href="https://www.hestiacp.com/%E3%80%82">https://www.hestiacp.com/。</a></p>
+<p><img src= "https://s.nmxc.ltd/sakurairo_vision/@2.5/load_svg/outload.svg" data-lazy-src="https://s2.loli.net/2022/08/18/eNLc7C4SFxWJuBY.webp"></p>
+<p>如果不想用默认安装的话可以使用Hestia安装指令生成器，在这个工具选择想要安装的组件然后生成指令。</p>
+<p>安装指令生成器：<a target="_blank" rel="noopener" href="https://gabizz.github.io/hestiacp-scriptline-generator/">https://gabizz.github.io/hestiacp-scriptline-generator/</a></p>
+<p><img src= "https://s.nmxc.ltd/sakurairo_vision/@2.5/load_svg/outload.svg" data-lazy-src="https://s2.loli.net/2022/08/18/vWkd7zpsn2rtF1H.webp"></p>
+<p>当然也可以在其官网上用默认的指令安装。</p>
+<p>只是搭建博客的话不用安装默认的Apache，用Nginx即可，如果不需要搭建邮件服务器，那exim、dovecot等也不需要安装。port尽量不使用默认的端口号(註意有些服务器不会默认开放所有端口，需要前往购买VPS的网站，一般在「安全组」设置中，添加需要使用的端口号，用到哪个就开放哪个)，password用一个较复杂的密码，但要註意密码中的特殊字符不要影响到指令的执行。选好需要安装的组件后，点击右上角PROCEED按钮生成安装指令。</p>
+<p><img src= "https://s.nmxc.ltd/sakurairo_vision/@2.5/load_svg/outload.svg" data-lazy-src="https://s2.loli.net/2022/08/18/f1yi73zdrL8eIgM.webp"></p>
+<p>SSH连接服务器，用root账号登录，执行下载安装包指令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://raw.githubusercontent.com/hestiacp/hestiacp/release/install/hst-install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>执行安装指令(如下指令为默认安装，可用上方网站中工具选择所需自行生成)</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bash</span> hst-install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>安装完成后，终端会显示出面板的登录地址及账号密码，默认管理员账号admin，密码是刚刚在安装指令中设置的密码。</p>
+<h2 id="2-安装WordPress"><a href="#2-安装WordPress" class="headerlink" title="2.安装WordPress"></a>2.安装WordPress</h2><p>安装前将域名解析到服务器。打开面板地址并登录，在Web - Add new Domain中添加已解析好的域名以新建网站。如果当前用管理员账号admin登录，此时会提示推荐新建一个普通账号用来进行搭建网站的操作(admin账号一般用来修改服务器配置、Nginx配置、PHP配置等)。</p>
+<p>按提示新建一个普通账号，添加域名，勾选Enable SSL for this domain可获得SSL证书以便用https访问网站，保存。再编辑，点击Quick Install App选择WordPress安装。</p>
+<p><img src= "https://s.nmxc.ltd/sakurairo_vision/@2.5/load_svg/outload.svg" data-lazy-src="https://s2.loli.net/2022/08/18/ApleRPcB5GHQdnb.webp"></p>
+<h2 id="3-安装Sakarairo主题"><a href="#3-安装Sakarairo主题" class="headerlink" title="3.安装Sakarairo主题"></a>3.安装Sakarairo主题</h2><p>下载主题：<a target="_blank" rel="noopener" href="https://github.com/mirai-mamori/Sakurairo/releases">https://github.com/mirai-mamori/Sakurairo/releases</a></p>
+<p>在外观上传主题时提示「上传的文件尺寸超过 php.ini 中定义的 upload_max_filesize 值(The uploaded file exceeds the upload_max_filesize directive in php.ini)」。在WordPress控制台「媒体 – 新增媒体」中查看到当前网站中可上传文件大小上限。居然默认只有2MB，而Sakurairo主题为3.7MB。</p>
+<p><img src= "https://s.nmxc.ltd/sakurairo_vision/@2.5/load_svg/outload.svg" data-lazy-src="https://s2.loli.net/2022/08/18/PKedRAHMt4c6bE5.webp"></p>
+<p>解决方法为使用admin登录Hestia，点击右上角齿轮图标。修改php配置，将post_max_size和upload_max_size按需要改为较大的数值(post需大于或等于upload)，32MB一般日常就够用了。</p>
+<p><img src= "https://s.nmxc.ltd/sakurairo_vision/@2.5/load_svg/outload.svg" data-lazy-src="https://s2.loli.net/2022/08/18/EFw7ztv28CJdem5.webp"></p>
+<p>修改后即可在WordPress控制台外观中上传不大于32MB的主题文件了。</p>
+</article><div class="tag_share"><div class="post_share"></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-full"><a href="/2022/11.html"><img class="prev-cover" src= "https://s.nmxc.ltd/sakurairo_vision/@2.5/load_svg/outload.svg" data-lazy-src="https://s2.loli.net/2022/08/18/e7wvIxVuoYbcGld.jpg" onerror="onerror=null;src='https://s2.loli.net/2022/07/10/vb2VQdRzEG64SmH.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">Previous Post</div><div class="prev_info">Hexo butterfly主题 Front-matter说明</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> Comment</span></div></div><div class="comment-wrap"><div><div id="twikoo-wrap"></div></div></div></div></div></main><footer id="footer" style="background-image: url('https://s2.loli.net/2022/07/10/sfSDLcPRjz9u2ho.webp')"><div id="footer-wrap"><div class="copyright">&copy;2022 By vmmoe.com</div><div class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div><div class="footer_custom_text">付诸行动 坚持到底</div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Read Mode"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="Switch Between Traditional Chinese And Simplified Chinese">繁</button><button id="darkmode" type="button" title="Switch Between Light And Dark Mode"><i class="fas fa-adjust"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="Setting"><i class="fas fa-cog fa-spin"></i></button><a id="to_comment" href="#post-comment" title="Scroll To Comments"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="Back To Top"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.min.js"></script><script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload/dist/lazyload.iife.min.js"></script><div class="js-pjax"><script>(()=>{
+  const init = () => {
+    twikoo.init(Object.assign({
+      el: '#twikoo-wrap',
+      envId: 'https://hexo-twikoo-fj9s12q3y-kunsyuu.vercel.app',
+      region: 'ap-shanghai',
+      onCommentLoaded: function () {
+        btf.loadLightbox(document.querySelectorAll('#twikoo .tk-content img:not(.tk-owo-emotion)'))
+      }
+    }, null))
+  }
+
+  const getCount = () => {
+    const countELement = document.getElementById('twikoo-count')
+    if(!countELement) return
+    twikoo.getCommentsCount({
+      envId: 'https://hexo-twikoo-fj9s12q3y-kunsyuu.vercel.app',
+      region: 'ap-shanghai',
+      urls: [window.location.pathname],
+      includeReply: false
+    }).then(function (res) {
+      countELement.innerText = res[0].count
+    }).catch(function (err) {
+      console.error(err);
+    });
+  }
+
+  const runFn = () => {
+    init()
+    
+  }
+
+  const loadTwikoo = () => {
+    if (typeof twikoo === 'object') {
+      setTimeout(runFn,0)
+      return
+    } 
+    getScript('https://cdn.jsdelivr.net/npm/twikoo/dist/twikoo.all.min.js').then(runFn)
+  }
+
+  if ('Twikoo' === 'Twikoo' || !true) {
+    if (true) btf.loadComment(document.getElementById('twikoo-wrap'), loadTwikoo)
+    else loadTwikoo()
+  } else {
+    window.loadOtherComment = () => {
+      loadTwikoo()
+    }
+  }
+})()</script></div></div></body></html>
