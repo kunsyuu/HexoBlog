@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>Twikoo部署在vercel不能使用的解决方法</title>
+      <link href="/2022/17.html"/>
+      <url>/2022/17.html</url>
+      
+        <content type="html"><![CDATA[<!-- markdownlint-disable MD041 MD002--><p>突然发现博客的Twikoo留言功能不能用了，排查部署应该没有出错，是一步步按照说明文档做的。但奇怪的是在翻墙状态的网络下却又可以正常使用。</p><p>原来是因为vercel自动分配的域名 （例如 <a href="https://xxx.vercel.app/">https://xxx.vercel.app</a> ）在境内已经无法访问了。</p><p>只需要为部署在vercel的Twikoo项目添加可访问的自定义域名即可，可以使用子域名 （例如 <a href="https://message.vmmoe.com/">https://message.vmmoe.com</a> ），在Setting - Domains 中添加自定义域名，并按照提示解析。</p><p>在hexo的butterfly主题配置文件_config.butterfly.yml中修改Twikoo配置，将envId修改为自己自定义的域名即可。</p><pre class="line-numbers language-none"><code class="language-none">twikoo:  envId: https:&#x2F;&#x2F;message.vmmoe.com  region:   visitor: false  option:<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>参考：<a href="https://twikoo.js.org/quick-start.html#vercel-%E9%83%A8%E7%BD%B2">https://twikoo.js.org/quick-start.html#vercel-%E9%83%A8%E7%BD%B2</a></p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Note </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>迟到了四年的房屋漏水事故</title>
       <link href="/2022/16.html"/>
       <url>/2022/16.html</url>
