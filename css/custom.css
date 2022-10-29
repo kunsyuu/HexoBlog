@@ -49,4 +49,15 @@ body {
     display: none;
 }
 
+/*文字列表、文字内容、卡片 透明度设置*/
+#recent-posts .recent-post-item {
+    background: rgba(255, 255, 255, 0.7) !important;
+}
 
+#post {
+    background: rgba(255, 255, 255, 0.7) !important;
+}
+
+.card-widget {
+    background: rgba(255, 255, 255, 0.7) !important;
+}
