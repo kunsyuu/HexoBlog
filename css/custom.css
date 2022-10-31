@@ -1,12 +1,12 @@
 /*自定义字体*/
 @font-face{
-    font-family: 'zpix';
+    font-family: 'zhuziawan';
     font-display: swap;
-    src: url('/font/zpix.woff2') format("truetype");
+    src: url('/font/zhuziawan.woff2') format("truetype");
 }
 
 body {
-    font-family: 'zpix', "Microsoft YaHei";
+    font-family: 'zhuziawan', "Microsoft YaHei";
 }
 
 /*文章内容段落开头空两格*/
@@ -49,15 +49,27 @@ body {
     display: none;
 }
 
-/*文字列表、文字内容、卡片 透明度设置*/
-#recent-posts .recent-post-item {
+/*文章列表、文章内容、侧边卡片、页面内容 透明度设置*/
+#recent-posts .recent-post-item, #post, .card-widget, #page, #archive {
     background: rgba(255, 255, 255, 0.7) !important;
 }
 
-#post {
-    background: rgba(255, 255, 255, 0.7) !important;
+/*页脚*/
+#footer-wrap .footer_custom_text {
+    font-size: 14px;
 }
 
-.card-widget {
-    background: rgba(255, 255, 255, 0.7) !important;
+#footer-wrap .footer-left {
+    background-color: #515050;
+    padding: 2px 6px 2px 6px;
+    border-top-left-radius: 4px;
+    border-bottom-left-radius: 4px;
+}
+
+#footer-wrap .footer-right {
+    margin-right: 10px;
+    background-color: #f21f8c;
+    padding: 2px 6px 2px 6px;
+    border-top-right-radius: 4px;
+    border-bottom-right-radius: 4px;
 }
