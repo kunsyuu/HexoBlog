@@ -316,12 +316,42 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   /**
+   * right side - scroll percentage 20221102
+   */
+  const scrollPercentage = function(){
+    //const $article = document.getElementById('article-container')
+    const $article = document.getElementById('content-inner')
+    const $rightside = document.getElementById('rightside-config-show')
+    const $pagePercentage = $rightside.querySelector('.page-percentage')
+    let scrollPercent
+    scrollPercent = currentTop => {
+      const docHeight = $article.clientHeight
+      const winHeight = document.documentElement.clientHeight
+      const headerHeight = $article.offsetTop
+      const contentMath = (docHeight > winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)
+      const scrollPercent = (currentTop - headerHeight) / (contentMath)
+      const scrollPercentRounded = Math.round(scrollPercent * 100)
+      const percentage = (scrollPercentRounded > 100) ? 100 : (scrollPercentRounded <= 0) ? 0 : scrollPercentRounded
+      $pagePercentage.textContent = percentage + '%'
+    }
+    
+    window.pageScrollFn = function () {
+      return btf.throttle(function () {
+        const currentTop = window.scrollY || document.documentElement.scrollTop
+        scrollPercent(currentTop)
+      }, 100)()
+    }
+    window.addEventListener('scroll', pageScrollFn)
+  }
+
+  /**
   * toc,anchor
   */
   const scrollFnToDo = function () {
     const isToc = GLOBAL_CONFIG_SITE.isToc
     const isAnchor = GLOBAL_CONFIG.isAnchor
-    const $article = document.getElementById('article-container')
+    //const $article = document.getElementById('article-container')
+    const $article = document.getElementById('content-inner')
 
     if (!($article && (isToc || isAnchor))) return
 
@@ -754,6 +784,8 @@ document.addEventListener('DOMContentLoaded', function () {
       addLastPushDate()
       toggleCardCategory()
     }
+
+    scrollPercentage()
 
     scrollFnToDo()
     GLOBAL_CONFIG_SITE.isHome && scrollDownInIndex()
