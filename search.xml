@@ -4,25 +4,6 @@
   
     
     <entry>
-      <title>Hexo Butterfly主题将返回顶部按钮改为阅读进度百分比</title>
-      <link href="/2022/18.html"/>
-      <url>/2022/18.html</url>
-      
-        <content type="html"><![CDATA[<!-- markdownlint-disable MD041 MD002--><p>作为编程新手还处于学习阶段，看到在TOC(文章目录)中已有现成的功能，所以基本上复制粘贴代码即可实现。</p><table><thead><tr><th><img src="https://s2.loli.net/2022/11/02/9Wkix8XAnyQHN5C.jpg" alt="修改前"></th><th><img src="https://s2.loli.net/2022/11/02/AZvFwtG2Tj56J4b.jpg" alt="修改后"></th><th><img src="https://s2.loli.net/2022/11/02/hPbEB5ROJcUVpHy.jpg" alt="已存在"></th></tr></thead></table><h2 id="修改rightside-pug"><a href="#修改rightside-pug" class="headerlink" title="修改rightside.pug"></a>修改rightside.pug</h2><p>首先在themes\butterfly\layout\includes\rightside.pug将返回顶部按钮中的向上箭头图标注释掉，将按钮中的内容改为一个用于显示数字的span。按钮功能保持不变，仍然是点击后返回页面顶部。</p><pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;button#go-up(type&#x3D;&quot;button&quot; title&#x3D;_p(&quot;rightside.back_to_top&quot;))&#x2F;&#x2F;  i.fas.fa-arrow-upbutton#go-up(type&#x3D;&quot;button&quot; title&#x3D;_p(&quot;rightside.back_to_top&quot;))  span.page-percentage<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="修改main-js"><a href="#修改main-js" class="headerlink" title="修改main.js"></a>修改main.js</h2><p>在themes\butterfly\source\js\main.js中参考const scrollFnToDo &#x3D; function () { … }中内容，从中挑出相应功能的代码。</p><p>$article是用于计算百分比的总高度，在原方法中是指文章页面中文章内容部分的总高度，即取article-container的高度，现要用于整个网站所有页面，我在此处改成了页头到页脚之间部分的总高度，即改为取content-inner的高度。</p><p>在与scrollFnToDo方法同级别的地方添加如下方法。</p><pre class="line-numbers language-Javascript" data-language="Javascript"><code class="language-Javascript">&#x2F;** * right side - scroll percentage 20221102 *&#x2F;const scrollPercentage &#x3D; function()&#123;  const $article &#x3D; document.getElementById(&#39;content-inner&#39;)  const $rightside &#x3D; document.getElementById(&#39;rightside-config-show&#39;)  const $pagePercentage &#x3D; $rightside.querySelector(&#39;.page-percentage&#39;)  let scrollPercent  scrollPercent &#x3D; currentTop &#x3D;&gt; &#123;    const docHeight &#x3D; $article.clientHeight    const winHeight &#x3D; document.documentElement.clientHeight    const headerHeight &#x3D; $article.offsetTop    const contentMath &#x3D; (docHeight &gt; winHeight) ? (docHeight - winHeight) : (document.documentElement.scrollHeight - winHeight)    const scrollPercent &#x3D; (currentTop - headerHeight) &#x2F; (contentMath)    const scrollPercentRounded &#x3D; Math.round(scrollPercent * 100)    const percentage &#x3D; (scrollPercentRounded &gt; 100) ? 100 : (scrollPercentRounded &lt;&#x3D; 0) ? 0 : scrollPercentRounded    $pagePercentage.textContent &#x3D; percentage + &#39;%&#39;  &#125;    window.pageScrollFn &#x3D; function () &#123;    return btf.throttle(function () &#123;      const currentTop &#x3D; window.scrollY || document.documentElement.scrollTop      scrollPercent(currentTop)    &#125;, 100)()  &#125;  window.addEventListener(&#39;scroll&#39;, pageScrollFn)&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre><p>在window.refreshFn &#x3D; function ()中添加新增的方法。</p><pre class="line-numbers language-Javascript" data-language="Javascript"><code class="language-Javascript">window.refreshFn &#x3D; function () &#123;...scrollPercentage()...&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre><h2 id="自定义CSS"><a href="#自定义CSS" class="headerlink" title="自定义CSS"></a>自定义CSS</h2><p>改为显示数字后，数字的大小可能会超出按钮，所以我缩小了字体大小。</p><pre class="line-numbers language-CSS" data-language="CSS"><code class="language-CSS">#rightside .page-percentage &#123;    font-size: 80%;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>]]></content>
-      
-      
-      <categories>
-          
-          <category> Note </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Twikoo部署在vercel不能使用的解决方法</title>
       <link href="/2022/17.html"/>
       <url>/2022/17.html</url>
