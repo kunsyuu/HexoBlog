@@ -51,9 +51,13 @@ function createWinbox() {
         title: "切换背景",
         x: "center",
         y: "center",
-        minwidth: '300px',
-        height: "60%",
-        background: 'var(--leonus-blue)',
+        //top: 60,
+        //max: true,
+        width: "98%",
+        height: "90%",
+        //minwidth: '300px',
+        //height: "60%",
+        background: '#f21f8c',
         onmaximize: () => { div.innerHTML = `<style>body::-webkit-scrollbar {display: none;}div#changeBgBox {width: 100% !important;}</style>` },
         onrestore: () => { div.innerHTML = '' }
     });
@@ -64,8 +68,8 @@ function createWinbox() {
     winbox.body.innerHTML = `
     <div id="article-container" style="padding:10px;">
     
-    <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#5fcdff;display:block;width:100%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 点我恢复默认背景</button></p>
-    <h2 id="图片（手机）"><a href="#图片（手机）" class="headerlink" title="图片（手机）"></a>图片（手机）</h2>
+    <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#f21f8c;display:block;width:100%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 恢复默认背景</button></p>
+    <h2 id="手机端"><a href="#手机端" class="headerlink" title="手机端"></a>手机端</h2>
     <div class="bgbox">
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://s2.loli.net/2022/11/07/1nvSykNdbHRceIM.webp)" class="pimgbox" onclick="changeBg('url(https\://s2.loli.net/2022/11/07/1nvSykNdbHRceIM.webp)')"></a>
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://s2.loli.net/2022/11/07/IHqWLyvnYChpAzm.webp)" class="pimgbox" onclick="changeBg('url(https\://s2.loli.net/2022/11/07/IHqWLyvnYChpAzm.webp)')"></a>
@@ -75,7 +79,7 @@ function createWinbox() {
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://s2.loli.net/2022/11/07/omb3OCS9IT6jKUf.webp)" class="pimgbox" onclick="changeBg('url(https\://s2.loli.net/2022/11/07/omb3OCS9IT6jKUf.webp)')"></a>
     </div>
     
-    <h2 id="图片（电脑）"><a href="#图片（电脑）" class="headerlink" title="图片（电脑）"></a>图片（电脑）</h2>
+    <h2 id="电脑端"><a href="#电脑端" class="headerlink" title="电脑端"></a>电脑端</h2>
     <div class="bgbox">
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://s2.loli.net/2022/11/07/hzkd13DHAswoN7j.webp)" class="imgbox" onclick="changeBg('url(https\://s2.loli.net/2022/11/07/hzkd13DHAswoN7j.webp)')"></a>
     <a href="javascript:;" rel="noopener external nofollow" style="background-image:url(https://s2.loli.net/2022/11/07/41HhAjNwUvopGBf.webp)" class="imgbox" onclick="changeBg('url(https\://s2.loli.net/2022/11/07/41HhAjNwUvopGBf.webp)')"></a>
