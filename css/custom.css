@@ -48,7 +48,7 @@ body {
     width: 180px;
 }
 #sidebar #sidebar-menus .menus_items .site-page {
-    padding: 6px 0px 6px 40px;
+    padding: 6px 0px 6px 55px;
     font-size: 1em;
 }
 
@@ -63,7 +63,7 @@ body {
 }
 
 /*文章列表、文章内容、侧边卡片、页面内容 透明度设置*/
-#recent-posts .recent-post-item, #post, .card-widget, #page, #archive, #category, .search-dialog, #bg-article-container {
+#recent-posts .recent-post-item, #post, .card-widget, #page, #archive, #category, .search-dialog, #sidebar #sidebar-menus {
     background: rgba(255, 255, 255, 0.7) !important;
 }
 
