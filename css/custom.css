@@ -9,6 +9,19 @@ body {
     font-family: 'zhuziawan', "Microsoft YaHei";
 }
 
+/*导航栏居中
+#nav-right{
+    flex:1 1 auto;
+    justify-content: flex-end;
+    margin-left: auto;
+    display: flex;
+    flex-wrap:nowrap;
+}*/
+
+#nav.hide-menu #toggle-menu .site-page {
+    padding-left: 6px;
+}
+
 /*文章内容段落开头空两格*/
 #article-container p {
     text-indent: 2em;
@@ -50,7 +63,7 @@ body {
 }
 
 /*文章列表、文章内容、侧边卡片、页面内容 透明度设置*/
-#recent-posts .recent-post-item, #post, .card-widget, #page, #archive {
+#recent-posts .recent-post-item, #post, .card-widget, #page, #archive, #category {
     background: rgba(255, 255, 255, 0.7) !important;
 }
 
