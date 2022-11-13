@@ -57,7 +57,7 @@ function createWinbox() {
         height: "90%",
         //minwidth: '300px',
         //height: "60%",
-        //background: '#f21f8c',
+        background: '#f21f8c',
         onmaximize: () => { div.innerHTML = `<style>body::-webkit-scrollbar {display: none;}div#changeBgBox {width: 100% !important;}</style>` },
         onrestore: () => { div.innerHTML = '' }
     });
@@ -66,7 +66,7 @@ function createWinbox() {
 
     // 每一类我放了一个演示，直接往下复制粘贴 a标签 就可以，需要注意的是 函数里面的链接 冒号前面需要添加反斜杠\进行转义
     winbox.body.innerHTML = `
-    <div id="article-container" style="padding:10px;">
+    <div id="bg-article-container" style="padding:10px;">
     
     <p><button onclick="localStorage.removeItem('blogbg');location.reload();" style="background:#f21f8c;display:block;width:100%;padding: 15px 0;border-radius:6px;color:white;"><i class="fa-solid fa-arrows-rotate"></i> 恢复默认背景</button></p>
     <h2 id="手机端"><a href="#手机端" class="headerlink" title="手机端"></a>手机端</h2>
@@ -90,7 +90,7 @@ function createWinbox() {
     </div>
     
     
-    
+    <!--
     <h2 id="渐变色"><a href="#渐变色" class="headerlink" title="渐变色"></a>渐变色</h2>
     <div class="bgbox">
     <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: linear-gradient(to right, #eecda3, #ef629f)" onclick="changeBg('linear-gradient(to right, #eecda3, #ef629f)')"></a>
@@ -100,6 +100,7 @@ function createWinbox() {
     <div class="bgbox">
     <a href="javascript:;" rel="noopener external nofollow" class="box" style="background: #7D9D9C" onclick="changeBg('#7D9D9C')"></a> 
     </div>
+    -->
 `;
 }
 
