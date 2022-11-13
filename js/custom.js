@@ -57,7 +57,7 @@ function createWinbox() {
         height: "90%",
         //minwidth: '300px',
         //height: "60%",
-        background: '#f21f8c',
+        //background: '#f21f8c',
         onmaximize: () => { div.innerHTML = `<style>body::-webkit-scrollbar {display: none;}div#changeBgBox {width: 100% !important;}</style>` },
         onrestore: () => { div.innerHTML = '' }
     });
