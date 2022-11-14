@@ -46,10 +46,6 @@ body {
 #sidebar #sidebar-menus {
     right: -180px;
     width: 180px;
-    background-image: url('https://s2.loli.net/2022/11/13/WobRfhOuMLFBjig.png');
-    background-repeat: no-repeat;
-    background-size: 100% auto;
-    background-position: 30% 100%;
 }
 #sidebar #sidebar-menus .menus_items .site-page {
     padding: 6px 0px 6px 55px;
@@ -97,12 +93,16 @@ body {
 }
 
 /*切换背景*/
-/* 由于全屏会出bug，所以直接给他隐藏 */
 #toggleWinbox-button {
     display: inline;
     padding: 0 0 0 14px;
 }
 
+.wb-header {
+    background-color: #f21f8c;
+}
+
+/* 由于全屏会出bug，所以直接给他隐藏 */
 .winbox {
     border-radius: 12px;
     overflow: hidden;
