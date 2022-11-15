@@ -2,11 +2,11 @@
 @font-face{
     font-family: 'zhuziawan';
     font-display: swap;
-    src: url('https://$da485ff8478643a9bf9a.ucr.io/https://vmmoe.com/font/zhuziawan.woff2') format("truetype");
+    src: url('/font/zhuziawan.woff2') format("truetype");
 }
 
 body {
-    font-family: 'zhuziawan', "Microsoft YaHei";
+    font-family: 'zhuziawan', 'Noto Serif SC', 'WenQuanYi Micro Hei', 'ST Heiti', 'Microsoft YaHei';
 }
 
 /*导航栏居中
