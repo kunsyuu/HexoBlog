@@ -2,12 +2,20 @@
 @font-face{
     font-family: 'zhuziawan';
     font-display: swap;
-    src: url('/font/zhuziawan.woff2') format("truetype");
+    src: url('/fonts/zhuziawan.woff2') format("truetype");
 }
 
 body {
-    font-family: 'zhuziawan', 'Noto Serif SC', 'WenQuanYi Micro Hei', 'ST Heiti', 'Microsoft YaHei';
+    font-family: 'zhuziawan', 'WenQuanYi Micro Hei', 'Noto Serif SC', 'ST Heiti', 'Microsoft YaHei';
 }
+
+.icon {
+    width: 1.5em; height: 1.5em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+ }
+
 
 /*导航栏居中
 #nav-right{
