@@ -4,6 +4,25 @@
   
     
     <entry>
+      <title>有错就吸取教训</title>
+      <link href="/2022/21.html"/>
+      <url>/2022/21.html</url>
+      
+        <content type="html"><![CDATA[<!-- markdownlint-disable MD041 MD002--><p>做了错事，后悔莫及。<br>唯有吃一堑长一智，吸取教训，未来时间还长，还有弥补的机会。</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Life </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>umami + Netlify + Supabase 零成本搭建网站访问统计系统</title>
       <link href="/2022/20.html"/>
       <url>/2022/20.html</url>
