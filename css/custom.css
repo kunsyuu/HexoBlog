@@ -26,8 +26,9 @@ body {
     flex-wrap:nowrap;
 }*/
 
+/*菜单按钮左边距*/
 #nav.hide-menu #toggle-menu .site-page {
-    padding-left: 12px;
+    padding-left: 8px;
 }
 
 /*文章内容段落开头空两格*/
