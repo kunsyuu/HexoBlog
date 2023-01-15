@@ -16,6 +16,11 @@ body {
     overflow: hidden;
  }
 
+ /*右下角显示隐藏按钮 齿轮图标*/
+#rightside-config-show #rightside_config {
+    display: none;
+}
+
 
 /*导航栏居中
 #nav-right{
