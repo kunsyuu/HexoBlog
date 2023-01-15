@@ -194,25 +194,6 @@
     
     
     <entry>
-      <title>Hestia面板安装WordPress</title>
-      <link href="/2022/12.html"/>
-      <url>/2022/12.html</url>
-      
-        <content type="html"><![CDATA[<!-- markdownlint-disable MD041 MD002--><blockquote><p>虽然现在已经改用Hexo静态博客，但还是记录下以前使用WordPress时的安装过程。</p></blockquote><p>服务器使用管理面板为HestiaCP，网站使用WordPress及其很好看的主题Sakurairo搭建而成。</p><p>以前一直觉得宝塔面板很好用，但最近发现宝塔面板无法绕过强行绑定手机号，道听途说到还会定时运行脚本收集服务器信息，即使是使用国际版的aapanel也同样有收集信息的问题，这些脚本在运行时还会占用较大的服务器资源。虽然可以通过禁用收集信息的脚本来临时解决，我也没有什么隐私可供收集，但即然已经感觉不痛快那就不用了吧。</p><p>试用了Hestia感觉还不错，非常轻巧且日常所需功能均有。服务器用这类面板肯定要方便一些，手动安装配置服务器环境和网站还是需要花费不少时间精力的，有开源免费的工具的话还是尽量使用工具吧。</p><p>搭建步骤：</p><h2 id="1-安装HestiaCP"><a href="#1-安装HestiaCP" class="headerlink" title="1.安装HestiaCP"></a>1.安装HestiaCP</h2><p>Hestia官方网站：<a href="https://www.hestiacp.com/">https://www.hestiacp.com</a></p><p><img src="https://res.cloudinary.com/dufhx47ow/image/upload/v1668506817/post/12/1201_oh7h0v.webp"></p><p>如果不想用默认安装的话可以使用Hestia安装指令生成器，在这个工具选择想要安装的组件然后生成指令。</p><p>安装指令生成器：<a href="https://gabizz.github.io/hestiacp-scriptline-generator/">https://gabizz.github.io/hestiacp-scriptline-generator/</a></p><p><img src="https://res.cloudinary.com/dufhx47ow/image/upload/v1668506816/post/12/1202_pdyoig.webp"></p><p>当然也可以在其官网上用默认的指令安装。</p><p>只是搭建博客的话不用安装默认的Apache，用Nginx即可，如果不需要搭建邮件服务器，那exim、dovecot等也不需要安装。port尽量不使用默认的端口号(注意有些服务器不会默认开放所有端口，需要前往购买VPS的网站，一般在「安全组」设置中，添加需要使用的端口号，用到哪个就开放哪个)，password用一个较复杂的密码，但要注意密码中的特殊字符不要影响到指令的执行。选好需要安装的组件后，点击右上角PROCEED按钮生成安装指令。</p><p><img src="https://res.cloudinary.com/dufhx47ow/image/upload/v1668506816/post/12/1203_jto6bj.webp"></p><p>SSH连接服务器，用root账号登录，执行下载安装包指令</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">wget</span> https://raw.githubusercontent.com/hestiacp/hestiacp/release/install/hst-install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>执行安装指令(如下指令为默认安装，可用上方网站中工具选择所需自行生成)</p><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">bash</span> hst-install.sh<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre><p>安装完成后，终端会显示出面板的登录地址及账号密码，默认管理员账号admin，密码是刚刚在安装指令中设置的密码。</p><h2 id="2-安装WordPress"><a href="#2-安装WordPress" class="headerlink" title="2.安装WordPress"></a>2.安装WordPress</h2><p>安装前将域名解析到服务器。打开面板地址并登录，在Web - Add new Domain中添加已解析好的域名以新建网站。如果当前用管理员账号admin登录，此时会提示推荐新建一个普通账号用来进行搭建网站的操作(admin账号一般用来修改服务器配置、Nginx配置、PHP配置等)。</p><p>按提示新建一个普通账号，添加域名，勾选Enable SSL for this domain可获得SSL证书以便用https访问网站，保存。再编辑，点击Quick Install App选择WordPress安装。</p><p><img src="https://res.cloudinary.com/dufhx47ow/image/upload/v1668506816/post/12/1204_hgfaom.webp"></p><h2 id="3-安装Sakarairo主题"><a href="#3-安装Sakarairo主题" class="headerlink" title="3.安装Sakarairo主题"></a>3.安装Sakarairo主题</h2><p>下载主题：<a href="https://github.com/mirai-mamori/Sakurairo/releases">https://github.com/mirai-mamori/Sakurairo/releases</a></p><p>在外观上传主题时提示「上传的文件尺寸超过 php.ini 中定义的 upload_max_filesize 值(The uploaded file exceeds the upload_max_filesize directive in php.ini)」。在WordPress控制台「媒体 – 新增媒体」中查看到当前网站中可上传文件大小上限。居然默认只有2MB，而Sakurairo主题为3.7MB。</p><p><img src="https://res.cloudinary.com/dufhx47ow/image/upload/v1668506816/post/12/1205_svic6l.webp"></p><p>解决方法为使用admin登录Hestia，点击右上角齿轮图标。修改php配置，将post_max_size和upload_max_size按需要改为较大的数值(post需大于或等于upload)，32MB一般日常就够用了。</p><p><img src="https://res.cloudinary.com/dufhx47ow/image/upload/v1668506816/post/12/1206_f8cetp.webp"></p><p>修改后即可在WordPress控制台外观中上传不大于32MB的主题文件了。</p>]]></content>
-      
-      
-      <categories>
-          
-          <category> Note </category>
-          
-      </categories>
-      
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>Hexo butterfly主题 Front-matter说明</title>
       <link href="/2022/11.html"/>
       <url>/2022/11.html</url>
