@@ -3628,13 +3628,6 @@ h1.page-title + .tag-cloud-list {
   font-weight: bold;
   cursor: pointer;
 }
-#nav .site-logo {
-  display: inline-block;
-  vertical-align: middle;
-  width: 136px;
-  height: 40px;
-  background-size: cover !important;
-}
 #nav .menus_items {
   display: inline;
 }

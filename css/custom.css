@@ -237,3 +237,13 @@ button#go-up:hover i {
 button#go-up:hover #percent {
     display: none !important;
 }
+
+/* Logo改为图片 */
+.site-logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 150px;
+    height: 40px;
+    border-radius: 10px;
+    background-size: cover!important;
+}
