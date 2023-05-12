@@ -78,7 +78,7 @@ body {
 
 /*文章列表、文章内容、侧边卡片、页面内容 透明度设置*/
 #recent-posts .recent-post-item, #post, .card-widget, #page, #archive, #category, .search-dialog {
-    background: rgba(255, 255, 255, 0.7) !important;
+    background: rgba(255, 255, 255, 0.9) !important;
 }
 
 /*页脚*/
