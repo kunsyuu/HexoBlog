@@ -243,7 +243,11 @@ button#go-up:hover #percent {
     display: inline-block;
     vertical-align: middle;
     width: 150px;
-    height: 40px;
+    height: 30px;
     border-radius: 10px;
     background-size: cover!important;
+}
+/* Logo改为图片 logo位置稍微提高一點 */
+#nav #blog_name {
+    padding-bottom: 10px;
 }
