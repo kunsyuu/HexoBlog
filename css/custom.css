@@ -1,12 +1,12 @@
-/*自定义字体*/
+/*自定义字体
 @font-face{
     font-family: 'zhuziawan';
     font-display: swap;
     src: url('/fonts/zhuziawan.woff2') format("truetype");
-}
+}*/
 
 body {
-    font-family: 'zhuziawan', 'WenQuanYi Micro Hei', 'Noto Serif SC', 'ST Heiti', 'Microsoft YaHei';
+    font-family: 'LXGW WenKai Screen', 'KaiTi', 'zhuziawan', 'WenQuanYi Micro Hei', 'Noto Serif SC', 'ST Heiti', 'Microsoft YaHei';
 }
 
 .icon {
